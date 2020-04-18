@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Titlu</title>
+</head>
+<body>
+    <h1>Pet List</h1>
+<!--    <table>-->
+<!--        <forEach items="${gear}" var="g" varStatus="vStatus">-->
+<!--            <tr>-->
+<!--                <td>${g.category}</td>-->
+<!--                <td>${g.desc1}</td>-->
+<!--                <td>${g.quant}</td>-->
+<!--                <td><input type="text" id="${pStatus}" name="${pStatus}"></td>-->
+<!--            </tr>-->
+<!--        </forEach>-->
+<!--    </table>-->
+    <span th:text="${PePe.name}"/>
+    <span th:text="${PePe.species}"/>
+    <span th:text="${PePe.age}" />
+    <span th:text="${PePe.birthdate}" />
+    <br>
+    <div>
+        <form action="/petList" method="post">
+            <button>Back</button>
+        </form>
+    </div>
+</body>
+</html>

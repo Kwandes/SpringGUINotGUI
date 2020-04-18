@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .petInput {
+                background: rgb(238,174,202);
+                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+                width: 300px;
+                height: 50px;
+                font-size: 30px;
+                font-family: monospace;
+            }
+            .pet {
+                color: hotpink;
+            }
+            .petDivInput {
+                width: fit-content;
+                height: fit-content;
+                float: right;
+                margin-right: 42%;
+            }
+            #input{
+                font-family: monospace;
+                font-size: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- region Input -->
+        <div id="input">
+            <form action="/inputExercise", method="POST">
+                <label class="pet">
+                    Pet Name:
+                    <div class="petDivInput" ><input class="petInput" name="petName" type="text" placeholder="Insert name here."></div>
+                </label>
+                <br>
+                <label class="pet">
+                    Pet Species:
+                    <div class="petDivInput" ><input class="petInput" name="petSpecies" type="text" placeholder="Insert Species here."></div>
+                </label>
+                <br>
+                <label class="pet">
+                    Pet Age:
+                    <div class="petDivInput" ><input class="petInput" name="petAge" type="number" placeholder="Insert Age here."></div>
+                </label>
+                <br>
+                <label class="pet">
+                    Pet Birthdate:
+                    <div class="petDivInput" ><input class="petInput" name="petBirthdate" type="date"></div>
+                </label>
+                <div id="submitInput">
+                    <input type="submit">
+                </div>
+            </form>
+
+        </div>
+        <!-- endregion -->
+    </body>
+</html>
