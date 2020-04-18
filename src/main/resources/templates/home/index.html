@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-    </head>
-    <body background-color="powderblue">
-
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS linking example</title>
+    <link th:href="@{/index.css}" rel="stylesheet" />
+</head>
+<body>
+<div id="yeet">testing <br> css</div>
+</body>
 </html>
