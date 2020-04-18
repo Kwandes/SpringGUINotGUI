@@ -6,20 +6,13 @@
 </head>
 <body>
     <h1>Pet List</h1>
-<!--    <table>-->
-<!--        <forEach items="${gear}" var="g" varStatus="vStatus">-->
-<!--            <tr>-->
-<!--                <td>${g.category}</td>-->
-<!--                <td>${g.desc1}</td>-->
-<!--                <td>${g.quant}</td>-->
-<!--                <td><input type="text" id="${pStatus}" name="${pStatus}"></td>-->
-<!--            </tr>-->
-<!--        </forEach>-->
-<!--    </table>-->
-    <span th:text="${PePe.name}"/>
-    <span th:text="${PePe.species}"/>
-    <span th:text="${PePe.age}" />
-    <span th:text="${PePe.birthdate}" />
+<!--    <span th:text="${PePe.name}"/>-->
+<!--    <span th:text="${PePe.species}"/>-->
+<!--    <span th:text="${PePe.age}" />-->
+<!--    <span th:text="${PePe.birthdate}" />-->
+    <ul th:each="pet : ${PePe}">
+        <li th:text="${pet.name}"></li>
+    </ul>
     <br>
     <div>
         <form action="/petList" method="post">

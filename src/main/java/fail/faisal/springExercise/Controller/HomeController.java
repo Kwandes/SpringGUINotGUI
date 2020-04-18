@@ -36,7 +36,7 @@ public class HomeController {
             System.out.println(petList.get(i).toString());
         }
 
-        model.addAttribute("PePe", pet);
+        model.addAttribute("PePe", petList);
 
         return "home/petList";
     }
