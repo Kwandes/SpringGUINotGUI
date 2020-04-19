@@ -22,6 +22,12 @@ public class HomeController {
         return "home/inputExercise";
     }
 
+    @GetMapping("/inputExercise")
+    public String getInputExercise()
+    {
+        return "home/inputExercise";
+    }
+
     @PostMapping("/inputExercise")
     public String petData (WebRequest wr, @ModelAttribute Pet pet, Model model) {
 //             (@ModelAttribute Pet pet, Model model) {
