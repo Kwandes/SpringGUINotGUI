@@ -21,6 +21,7 @@ public class HomeController {
     public String index() {
         return "home/inputExercise";
     }
+
     @PostMapping("/inputExercise")
     public String petData (WebRequest wr, @ModelAttribute Pet pet, Model model) {
 //             (@ModelAttribute Pet pet, Model model) {
@@ -44,5 +45,13 @@ public class HomeController {
     @PostMapping("/petList")
     public String back () {
         return "home/inputExercise";
+    }
+
+
+    // display thingsWeDislike.html when user calls http://localhost:8088/thingsWeDislike
+    @GetMapping("/thingsWeDislike")
+    public String thingsWeDislike()
+    {
+        return "home/thingsWeDislike";
     }
 }
