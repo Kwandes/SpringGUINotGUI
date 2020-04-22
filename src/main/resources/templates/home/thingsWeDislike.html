@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:w3="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Things We Dislike</title>
@@ -17,64 +17,89 @@
 </head>
 
 <body>
-    <!--
-        A header that sticks to the top of your screen as you scroll
-        Requires some simple javascript, linked in head (stickyHeader.js and jquery, which is required for that js to work)
-     -->
-    <script>
-        Sticky();
-    </script>
+<!--
+    A header that sticks to the top of your screen as you scroll
+    Requires some simple javascript, linked in head (stickyHeader.js and jquery, which is required for that js to work)
+ -->
+<script>
+    Sticky();
+</script>
 
-    <div id="StickyHeader">
-        <div id="header">
-            <a href="">
-                <div class="Title">
-                    <span style="font-size:80px;line-height:70px">Headline text</span></br><span style="line-height:50px;">Welcome to this [redacted]</span>
-                </div>
-            </a>
-            <!--Navigation options
-                Each menu option has a specific width and height, defined explicitly
-                Navigation Sets are groups of menu options
-                Menu options also contain a link but are styled to not be underlined etc
-            -->
-            <div id="NavigationMenu">
-                <div class="NavigationSet">
-                    <div style="height:35px;width:15px;float:left;"></div> <!-- Offsets the top set by 15px to the right -->
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;">Option 1</a>
-                    </div>
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;">Option 2</a>
-                    </div>
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;">Option 3</a>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
-                <br>
-                <div class="NavigationSet">
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;"> Option 3 </a>
-                    </div>
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;"> Option 4 </a>
-                    </div>
-                    <div class="menuoption" style="height:35px;width:83px;">
-                        <a href="" style="text-decoration:none; color:inherit;"> Option 5 </a>
-                    </div>
-                    <div style="clear:both"></div>
-                </div>
+<div id="StickyHeader">
+    <div id="header">
+        <a href="#placeholder">
+            <div class="Title">
+                <span style="font-size:80px;line-height:70px">Headline text</span>
+                </br>
+                <span style="line-height:50px;">Welcome to this [redacted]</span>
             </div>
-            <!--End of the navigation menu-->
+        </a>
+        <!--Navigation options
+            Each menu option has a specific width and height, defined explicitly
+            Navigation Sets are groups of menu options
+            Menu options also contain a link but are styled to not be underlined etc
+        -->
+        <div id="NavigationMenu">
+            <div class="NavigationSet">
+                <div style="height:35px;width:15px;float:left;"></div> <!-- Offsets the top set by 15px to the right -->
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;">Option 1</a>
+                </div>
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;">Option 2</a>
+                </div>
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;">Option 3</a>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <br>
+            <div class="NavigationSet">
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;"> Option 3 </a>
+                </div>
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;"> Option 4 </a>
+                </div>
+                <div class="menuoption" style="height:35px;width:83px;">
+                    <a href="" style="text-decoration:none; color:inherit;"> Option 5 </a>
+                </div>
+                <div style="clear:both"></div>
+            </div>
         </div>
-        <div style="clear:both"></div>
+        <!--End of the navigation menu-->
     </div>
-    <!-- End of the sticky header -->
+    <div style="clear:both"></div>
+</div>
+<!-- End of the sticky header -->
 
-    <div id="content">
-        <a href="/inputExercise"> checkout Spring Exercise 2</a>
+<div id="content">
+    <div style="border:pink solid; width:100%;">
+        <a href="/inputExercise"> Checkout Spring Exercise 2</a>
     </div>
-    <div id="footer"> Subscribe and remember to hit that notification bell</div>
+
+    <div id="listOfThings" style="margin:20px">
+        <ul th:each="dislikedThings : ${dislikedThings}">
+            <li th:text="${dislikedThings.name}">placeholder</li>
+            <li th:text="${dislikedThings.author}"></li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <div id="addThings">
+
+        <form method="post" action="/addNewDislike">
+            <h3>Add New Thing you dislike</h3>
+            <input class="dislikedThingInput" name="dislikeName" type="text" placeholder="Insert disliked thing here.">
+            <br>
+            <input class="dislikedThingInput" name="author" type="text" placeholder="Insert author here.">
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+
+</div>
+<div id="footer"> Subscribe and remember to hit that notification bell</div>
 
 </body>
-</html>
