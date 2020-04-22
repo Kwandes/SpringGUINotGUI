@@ -74,15 +74,18 @@
 <!-- End of the sticky header -->
 
 <div id="content">
-    <div style="border:pink solid; width:100%;">
-        <a href="/inputExercise"> Checkout Spring Exercise 2</a>
+    <div id="exercises">
+        <a style="color:inherit" href="/inputExercise"> Checkout Spring Exercise 2</a>
+        <br>
+        <a style="color:inherit" href="/thingsWeDislike"> Checkout Things we dislike</a>
     </div>
 
-    <div id="listOfThings" style="margin:20px">
-        <ul th:each="dislikedThings : ${dislikedThings}">
-            <li th:text="${dislikedThings.name}">placeholder</li>
-            <li th:text="${dislikedThings.author}"></li>
-        </ul>
+    <div id="listOfThings">
+        <h3>Things we dislike</h3>
+        <div id="dislikeLoop" th:each="dislikedThings : ${dislikedThings}">
+            <span id="dislike" th:text="${dislikedThings.name} + ' - ' + ${dislikedThings.author}">placeholder</span>
+            <br>
+        </div>
     </div>
 
     <br/>

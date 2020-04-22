@@ -6,10 +6,14 @@
 html, body
 {
     /* By default, body/html have a very small margin which might mess things up */
-    margin: 0px;
+    margin: 0;
 }
 body    /* Yes, you can define styles for a given element multiple times */
 {
+    background-color: #404040;
+    background-image:url(/img/overlapping-hexagons.png);
+    background-size: auto;
+    color: white;
 }
 
 /*
@@ -17,15 +21,19 @@ body    /* Yes, you can define styles for a given element multiple times */
  */
 
 #header {
-    background-color: cyan;
+    background-color: #333333;
+    background-image:url(/img/overlapping-hexagons.png);
     width: 100%;
     height: 121px;
+    color: #aba883;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Title
 {
     margin-left:10%;
-    font-color:#666666;
+    color: #aba883;
     font-size:25px;
     font-weight:bold;
     float:left;
@@ -48,30 +56,32 @@ body    /* Yes, you can define styles for a given element multiple times */
 .menuoption
 {
     float:left;
-    font-color:#666666;
+    font-color:#aba883;
     font-size:20px;
     font-weight:bold;
     padding-left:10px;
     padding-right:10px;
 }
+
 a
 {
     color:#333333;
 }
+
 .menuoption:hover
 {
-    color:#0896fe;
+    color:#aba883;
     cursor: pointer;
     font-size:22px;
 }
 .menuoption:link
 {
-    color:white;
+    color:#aba883;
     text-decoration: none;
 }
 .menuoption:active
 {
-    color:white;
+    color:#aba883;
     text-decoration: none;
 }
 
@@ -115,16 +125,36 @@ a
 
 #content {
     width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 50px 10% 40px;
+    padding: 30px 20px;
 
-    height: 2000px;
-    border: #131e7a solid;
-
+    height: 1000px;
     /* text-align: justify
        Content spaces out such that as many blocks fit onto one line as possible and
        the first word on that line is along the left edge and the last word is along the right edge. */
     text-align: justify;
+
+    background-color: #161718;
+    opacity: 0.8;
+    border: solid black 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    color: white;
+}
+
+#exercises{
+    color: white;
+    text-align: center;
+}
+
+#listOfThings{
+    color: white;
+    text-align: center;
+}
+
+#addThings{
+    color: white;
+    text-align: center;
 }
 
 /*
@@ -132,9 +162,8 @@ a
  */
 #footer {
     width: 100%;
-    margin-top: fill;
-    height: 50px;
-    border: #7a004c solid;
+    margin-top: 20px;
+    height: 40px;
 
     text-align: center;
     font-size: small;
