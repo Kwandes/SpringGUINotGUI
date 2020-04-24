@@ -19,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "home/inputExercise";
+        return "home/index";
     }
 
     @GetMapping("/inputExercise")
