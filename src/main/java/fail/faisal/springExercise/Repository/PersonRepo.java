@@ -32,8 +32,11 @@ public class PersonRepo
         return null;
     }
 
+    // in Cay's video, he provides data via postmapping annotation
     public Person addPerson(Person p)
     {
+        String query = "INSERT INTO person(id, first_name, last_name) VALUES (?, ?, ?)";
+        template.update(query, p.getId(), p.getFirstName(), p.getLastName());
         return null;
     }
 
