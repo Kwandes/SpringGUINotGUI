@@ -6,34 +6,41 @@
 package fail.faisal.springExercise.Service;
 
 import fail.faisal.springExercise.Model.Person;
+import fail.faisal.springExercise.Repository.PersonRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class PersonService
 {
+    @Autowired
+    PersonRepo personRepo;
 
     public List<Person> fetchAll()
     {
         //SQL code
-        return null; // temp return value which allows the code to compile
+        return personRepo.fetchAll();
     }
 
     public Person findPersonByID(int id)
     {
-        return null;
+        return personRepo.findPersonByID(id);
     }
 
     public Person addPerson(Person p)
     {
-        return null;
+        return personRepo.addPerson(p);
     }
 
     public  Person updatePerson(int id, Person p)
     {
-        return null;
+        return personRepo.updatePerson(id, p);
     }
 
     public Boolean deletePerson(int id)
     {
-        return null;
+        return personRepo.deletePerson(id);
     }
 }

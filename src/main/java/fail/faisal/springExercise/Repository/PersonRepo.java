@@ -6,10 +6,18 @@
 package fail.faisal.springExercise.Repository;
 
 import fail.faisal.springExercise.Model.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
+@Repository
 public class PersonRepo
 {
+    @Autowired
+    JdbcTemplate template;
+
     public List<Person> fetchAll()
     {
         //SQL code

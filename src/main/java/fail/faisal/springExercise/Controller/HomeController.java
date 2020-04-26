@@ -1,7 +1,10 @@
 package fail.faisal.springExercise.Controller;
 
+import fail.faisal.springExercise.Model.Person;
 import fail.faisal.springExercise.Model.Pet;
+import fail.faisal.springExercise.Service.PersonService;
 import fail.faisal.springExercise.SpringExerciseApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +65,8 @@ public class HomeController {
     }
 
     //region SQL
+    @Autowired
+    PersonService personService;
 
     @GetMapping("/sql")
     public String sql()
