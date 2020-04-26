@@ -7,7 +7,9 @@ package fail.faisal.springExercise.Repository;
 
 import fail.faisal.springExercise.Model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,8 +22,9 @@ public class PersonRepo
 
     public List<Person> fetchAll()
     {
-        //SQL code
-        return null; // temp return value which allows the code to compile
+        String query = "SELECT * FROM person";
+        RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
+        return template.query(query, rowMapper);
     }
 
     public Person findPersonByID(int id)

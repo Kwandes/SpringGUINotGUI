@@ -69,8 +69,10 @@ public class HomeController {
     PersonService personService;
 
     @GetMapping("/sql")
-    public String sql()
+    public String sql(Model model)
     {
+        List<Person> personList = personService.fetchAll();
+        model.addAttribute("persons", personList);
         return "/home/sql";
     }
 
