@@ -60,4 +60,14 @@ public class HomeController {
     {
         return "home/thingsWeDislike";
     }
+
+    //region SQL
+
+    @GetMapping("/sql")
+    public String sql()
+    {
+        return "/home/sql";
+    }
+
+    //endregion
 }
