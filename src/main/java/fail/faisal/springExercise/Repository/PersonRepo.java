@@ -29,7 +29,10 @@ public class PersonRepo
 
     public Person findPersonByID(int id)
     {
-        return null;
+        String query = "SELECT * FROM person WHERE id = ?";
+        RowMapper<Person> rowMapper = new BeanPropertyRowMapper<>(Person.class);
+        Person p = template.queryForObject(query, rowMapper, id);
+        return p;
     }
 
     // in Cay's video, he provides data via postmapping annotation
