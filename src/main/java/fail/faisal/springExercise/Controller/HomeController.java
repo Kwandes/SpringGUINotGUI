@@ -1,5 +1,6 @@
 package fail.faisal.springExercise.Controller;
 
+import fail.faisal.springExercise.Model.Car;
 import fail.faisal.springExercise.Model.Person;
 import fail.faisal.springExercise.Model.Pet;
 import fail.faisal.springExercise.Service.CarService;
@@ -26,6 +27,7 @@ public class HomeController {
         return "home/index";
     }
 
+    //region Others
     @GetMapping("/inputExercise")
     public String getInputExercise()
     {
@@ -64,8 +66,9 @@ public class HomeController {
     {
         return "home/thingsWeDislike";
     }
+    //endregion
 
-    //region Cailua Part
+    //region Cailua
     //region Person
     @Autowired
     PersonService personService;
@@ -81,6 +84,8 @@ public class HomeController {
     @GetMapping("/person")
     public String person(Model model)
     {
+        List<Person> personList = personService.fetchAll();
+        model.addAttribute("personList", personList);
         return "/home/person";
     }
 
@@ -98,6 +103,8 @@ public class HomeController {
     @GetMapping("/car")
     public String car(Model model)
     {
+        List<Car> carList = carService.fetchAll();
+        model.addAttribute("carList", carList);
         return "/home/car";
     }
 
