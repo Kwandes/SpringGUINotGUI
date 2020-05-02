@@ -35,8 +35,11 @@ public class CarRepo {
 
     public Boolean deleteCar ( int carID ) {
         String query = "DELETE FROM car WHERE car_id = ?";
-        return template.update(query, carID) < 0;
+        return template.update(query, carID) < 0; // Why < 0 ? -1 => true
     }
 
-    public Car updateCar (  )
+    public Boolean updateCar ( Car car ) {
+        String query = "UPDATE car SET brand = ?, model = ?, color = ? WHERE car_id = ?";
+        return template.update(query, car.getBrand(), car.getModel(), car.getColor(), car.getCarID()) < 0;
+    }
 }

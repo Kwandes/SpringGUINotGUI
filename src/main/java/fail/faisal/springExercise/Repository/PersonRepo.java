@@ -43,13 +43,15 @@ public class PersonRepo
         return null;
     }
 
-    public Person updatePerson(int id, Person p)
+    public Boolean updatePerson(Person p)
     {
-        return null;
+        String query = "UPDATE person SET first_name = ?, last_name = ? WHERE id = ?";
+        return template.update(query, p.getFirstName(), p.getLastName(), p.getId()) < 0;
     }
 
     public Boolean deletePerson(int id)
     {
-        return null;
+        String query = "DELETE FROM person WHERE id = ?";
+        return template.update(query, id) < 0;
     }
 }

@@ -2,6 +2,7 @@ package fail.faisal.springExercise.Controller;
 
 import fail.faisal.springExercise.Model.Person;
 import fail.faisal.springExercise.Model.Pet;
+import fail.faisal.springExercise.Service.CarService;
 import fail.faisal.springExercise.Service.PersonService;
 import fail.faisal.springExercise.SpringExerciseApplication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,8 @@ public class HomeController {
         return "home/thingsWeDislike";
     }
 
-    //region SQL
+    //region Cailua Part
+    //region Person
     @Autowired
     PersonService personService;
 
@@ -75,10 +77,6 @@ public class HomeController {
         model.addAttribute("persons", personList);
         return "/home/sql";
     }
-
-    //endregion
-
-    //region Cailua Part
 
     @GetMapping("/person")
     public String person(Model model)
@@ -91,6 +89,11 @@ public class HomeController {
     {
         return "/home/editPerson";
     }
+    //endregion
+
+    //region Car
+    @Autowired
+    CarService carService;
 
     @GetMapping("/car")
     public String car(Model model)
@@ -103,6 +106,6 @@ public class HomeController {
     {
         return "/home/editCar";
     }
-
+    //endregion
     //endregion
 }

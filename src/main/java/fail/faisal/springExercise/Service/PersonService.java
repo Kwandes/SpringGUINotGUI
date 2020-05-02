@@ -34,9 +34,9 @@ public class PersonService
         return personRepo.addPerson(p);
     }
 
-    public  Person updatePerson(int id, Person p)
+    public Boolean updatePerson(Person p)
     {
-        return personRepo.updatePerson(id, p);
+        return personRepo.updatePerson(p);
     }
 
     public Boolean deletePerson(int id)
