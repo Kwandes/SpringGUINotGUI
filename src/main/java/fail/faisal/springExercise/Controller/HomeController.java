@@ -77,4 +77,32 @@ public class HomeController {
     }
 
     //endregion
+
+    //region Cailua Part
+
+    @GetMapping("/person")
+    public String person(Model model)
+    {
+        return "/home/person";
+    }
+
+    @GetMapping("/editPerson")
+    public String editPerson(Model model)
+    {
+        return "/home/editPerson";
+    }
+
+    @GetMapping("/car")
+    public String car(Model model)
+    {
+        return "/home/car";
+    }
+
+    @GetMapping("/editCar")
+    public String editCar(Model model)
+    {
+        return "/home/editCar";
+    }
+
+    //endregion
 }
