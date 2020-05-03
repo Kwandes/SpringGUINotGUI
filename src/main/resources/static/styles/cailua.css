@@ -10,9 +10,9 @@ html, body
 body    /* Yes, you can define styles for a given element multiple times */
 {
     background-color: #404040;
-    background-image:url(/img/background.png);
+    background-image:url(/img/swirl_pattern.png);
     background-size: auto;
-    color: white;
+    color: black;
 }
 
 /*
@@ -21,7 +21,7 @@ body    /* Yes, you can define styles for a given element multiple times */
 
 #header {
     background-color: #333333;
-    background-image:url(/img/background.png);
+    background-image:url(/img/swirl_pattern.png);
     width: 100%;
     height: 121px;
     color: #aba883;
@@ -132,29 +132,150 @@ a
        Content spaces out such that as many blocks fit onto one line as possible and
        the first word on that line is along the left edge and the last word is along the right edge. */
     text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 
-    background-color: #161718;
-    opacity: 0.8;
-    border: solid black 1px;
+    background-color: rgba(255,255,255,0.8);
     box-shadow:  10px 10px 5px 0px rgba(0,0,0,0.75);
     border-radius: 10px 10px 10px 10px;
 
-    color: white;
+    color: black;
+}
+#sqlData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#exercises{
-    color: white;
-    text-align: center;
+#addPerson {
+    width: 475px;
+    height: 300px;
+
+    position: relative;
 }
 
-#listOfThings{
-    color: white;
-    text-align: center;
+#buttonArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Center the add buttons stuff */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-#addThings{
-    color: white;
+#addButton{
+    width: 200px;
+    height: 25px;
     text-align: center;
+    padding: 15px;
+
+    border: #624AB7 1px solid;
+    box-shadow: 13px 15px 12px 3px rgba(0,0,0,0.75);
+    border-radius: 100px 100px 100px 100px;
+
+    transform: rotate(-90deg) translate(0, 100px);
+}
+#expandedAddButton{
+    width: 200px;
+    display: none;
+    padding: 50px;
+    margin: auto;
+
+    border: #624AB7 1px solid;
+    box-shadow: 17px 0px 12px 3px rgba(0,0,0,0.75);
+    border-radius: 100px 100px 100px 100px;
+}
+#buttonArea:hover #expandedAddButton {
+    display: inline-block;
+}
+
+#buttonArea:hover #addButton {
+    display: none;
+}
+/*
+    table layout of person/car data
+ */
+
+#listOfData {
+    width: 475px;
+    border: #131e7a 1px solid;
+}
+
+
+table.dataTable {
+    border: 0px solid #FFFFFF;
+    width: 350px;
+    text-align: center;
+    border-collapse: collapse;
+}
+table.dataTable td, table.dataTable th {
+    padding: 3px 2px;
+}
+table.dataTable tbody td {
+    font-size: 15px;
+}
+table.dataTable tbody tr:nth-child(even) {
+    background: #F5EEF5;
+}
+table.dataTable tbody tr:hover{
+    background: #0896fe;
+}
+table.dataTable tbody tr:nth-child(even):hover{
+    background: #624AB7;
+}
+table.dataTable thead {
+    background: #624AB7;
+    border-bottom: 5px solid #FFFFFF;
+}
+table.dataTable thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+table.dataTable tfoot td {
+    font-size: 14px;
+}
+
+/* Expanding menu with edit and remove buttons */
+
+table.dataTable .tableOptions{
+    position: relative;
+}
+
+table.dataTable .tableOptionButtons {
+    display: none;
+    width: 100px;
+    height: 20px;
+    padding: 3px;
+
+    /* Center vertically the option buttons */
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    margin-top: -14px;
+
+    border: #7a004c 1px solid;
+}
+
+table.dataTable img {
+    height: 12px;
+    width: 12px;
+    object-fit: scale-down;
+    margin-right: 2px;
+    float: left;
+    position: relative;
+    left: 0px;
+    text-align: left;
+}
+
+table.dataTable .tableOptions:hover img{
+    height: 15px;
+}
+table.dataTable .tableOptions:hover .tableOptionButtons{
+    display: flex;
 }
 
 /*
@@ -172,3 +293,4 @@ a
     position : absolute;
     bottom : 0;
 }
+
