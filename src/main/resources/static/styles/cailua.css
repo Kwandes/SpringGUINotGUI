@@ -200,7 +200,6 @@ a
 
 #listOfData {
     width: 475px;
-    border: #131e7a 1px solid;
 }
 
 
@@ -254,7 +253,7 @@ table.dataTable .tableOptionButtons {
     /* Center vertically the option buttons */
     position: absolute;
     top: 50%;
-    left: 30px;
+    left: 26px;
     margin-top: -14px;
 
     border: #7a004c 1px solid;
@@ -264,7 +263,6 @@ table.dataTable img {
     height: 12px;
     width: 12px;
     object-fit: scale-down;
-    margin-right: 2px;
     float: left;
     position: relative;
     left: 0px;
@@ -272,7 +270,7 @@ table.dataTable img {
 }
 
 table.dataTable .tableOptions:hover img{
-    height: 15px;
+    height: 17px;
 }
 table.dataTable .tableOptions:hover .tableOptionButtons{
     display: flex;
