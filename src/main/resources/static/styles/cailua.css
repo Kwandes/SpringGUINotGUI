@@ -274,12 +274,12 @@ table.dataTable .tableOptionButtons {
     display: none;
     width: 100px;
     height: 20px;
-    padding: 3px;
+    padding: 2px 3px;
 
     /* Center vertically the option buttons */
     position: absolute;
     top: 50%;
-    left: 26px;
+    left: 24px;
     margin-top: -14px;
 }
 
