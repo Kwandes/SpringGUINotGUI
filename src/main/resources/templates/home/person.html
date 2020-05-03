@@ -71,10 +71,12 @@
                         Add a new Person
                     </div>
                     <div id="expandedAddButton">
-                        <span id="addPersonText">Add new Person</span><br>
-                        <input type="text" class="inputPerson" value="First Name"><br>
-                        <input type="text" class="inputPerson" value="Last Name"><br>
-                        <button class="dataOptionButton" type="submit" th:value="Submit">Add</button>
+                        <form action="/addPerson" method="POST">
+                            <span id="addPersonText">Add new Person</span><br>
+                            <input type="text" class="inputPerson" name="firstName" value="First Name"><br>
+                            <input type="text" class="inputPerson" name="lastName" value="Last Name"><br>
+                            <button class="dataOptionButton" type="submit">Add</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -96,8 +98,12 @@
                         <td class="tableOptions">
                             <img th:src="@{/img/doubleChevron.png}" alt=">>">
                             <div class="tableOptionButtons">
-                                <button class="dataOptionButton">edit</button>
-                                <button class="dataOptionButton">remove</button>
+                                <form action="/editPerson" method="POST">
+                                    <button class="dataOptionButton" type="submit" th:value="${person.id}">edit</button>
+                                </form>
+                                <form action="/deletePerson" method="POST">
+                                    <button class="dataOptionButton" type="submit" th:value="${person.id}">remove</button>
+                                </form>
                             </div>
                         </td>
                     </tr>
