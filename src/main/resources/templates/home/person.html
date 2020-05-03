@@ -99,10 +99,10 @@
                             <img th:src="@{/img/doubleChevron.png}" alt=">>">
                             <div class="tableOptionButtons">
                                 <form action="/editPerson" method="POST">
-                                    <button class="dataOptionButton" type="submit" th:value="${person.id}">edit</button>
+                                    <button class="dataOptionButton" type="submit" name="personID" th:value="${person.id}">edit</button>
                                 </form>
                                 <form action="/deletePerson" method="POST">
-                                    <button class="dataOptionButton" type="submit" th:value="${person.id}">remove</button>
+                                    <button class="dataOptionButton" type="submit" name="personID" th:value="${person.id}">remove</button>
                                 </form>
                             </div>
                         </td>

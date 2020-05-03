@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.request.WebRequest;
 
@@ -66,12 +67,6 @@ public class HomeController {
     {
         return "home/thingsWeDislike";
     }
-    //endregion
-
-    //region Cailua
-    //region Person
-    @Autowired
-    PersonService personService;
 
     @GetMapping("/sql")
     public String sql(Model model)
@@ -81,6 +76,14 @@ public class HomeController {
         return "/home/sql";
     }
 
+    //endregion
+
+    //region Cailua
+    //region Person
+    @Autowired
+    PersonService personService;
+
+
     @GetMapping("/person")
     public String person(Model model)
     {
@@ -89,10 +92,35 @@ public class HomeController {
         return "/home/person";
     }
 
-    @GetMapping("/editPerson")
-    public String editPerson(Model model)
+    @PostMapping("/addPerson")
+    public String addPerson ( @ModelAttribute Person person ){
+        personService.addPerson( person );
+        return "redirect:/person";
+    }
+
+    @PostMapping("/deletePerson")
+    public String deletePerson (WebRequest wr) {
+        int personID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID")));
+        Boolean deleted = personService.deletePerson(personID);
+        return "redirect:/person";
+    }
+
+    @PostMapping("/editPerson")
+    public String editPerson(Model model, WebRequest wr)
     {
-        return "/home/editPerson";
+        Person person = personService.findPersonByID(Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID"))));
+        model.addAttribute("person", person);
+        return "redirect:/editPerson";
+    }
+
+    @PostMapping("/savePerson")
+    public String savePerson (WebRequest wr) {
+        String firstName = wr.getParameter("firstName");
+        String lastName = wr.getParameter("lastName");
+        int personID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID")));
+        Person person = new Person ( personID, firstName, lastName );
+        personService.updatePerson(person);
+        return "redirect:/person";
     }
     //endregion
 
@@ -108,10 +136,37 @@ public class HomeController {
         return "/home/car";
     }
 
-    @GetMapping("/editCar")
-    public String editCar(Model model)
+    @PostMapping("/addCar")
+    public String addCar( @ModelAttribute Car car ) {
+        carService.addCar(car);
+        return "redirect:/car";
+    }
+
+    @PostMapping("/deleteCar")
+    public String deleteCar (WebRequest wr) {
+        int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
+        carService.deleteCar(carID);
+        return "redirect:/car";
+    }
+
+    @PostMapping("/editCar")
+    public String editCar(Model model, WebRequest wr)
     {
-        return "/home/editCar";
+        int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
+        Car car = carService.findCarByID(carID);
+        model.addAttribute("car", car);
+        return "redirect:/editCar";
+    }
+
+    @PostMapping("/saveCar")
+    public String saveCar (WebRequest wr){
+        int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
+        String brand = wr.getParameter("brand");
+        String model = wr.getParameter("model");
+        String color = wr.getParameter("color");
+        Car car = new Car (carID, brand, model, color);
+        carService.updateCar(car);
+        return "redirect:/car";
     }
     //endregion
     //endregion
