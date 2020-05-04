@@ -88,7 +88,7 @@ public class HomeController {
     public String person(Model model)
     {
         List<Person> personList = personService.fetchAll();
-        model.addAttribute("persons", personList);
+        model.addAttribute("personList", personList);
         return "/home/person";
     }
 
