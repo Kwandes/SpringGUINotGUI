@@ -57,10 +57,21 @@
 
     <div id="content">
 
-        <div id="editCar">
-            <h3>Edit info goes here</h3>
+        <div id="addPerson">
+            <div id="buttonArea">
+                <div id="addButton">EDIT</div>
+                <div id="expandedAddButton">
+                    <form action="/saveCar" method="POST">
+                        <span id="addPersonText">Edit Car</span><br>
+                        <input type="text" class="inputPerson" name="brand" th:value="${car.brand}" maxlength="30"><br>
+                        <input type="text" class="inputPerson" name="model" th:value="${car.model}" maxlength="30"><br>
+                        <input type="text" class="inputPerson" name="color" th:value="${car.color}" maxlength="30"><br>
+                        <button class="dataOptionButton" type="submit" name="carID" th:value="${car.car_id}">Save</button>
+                    </form>
+                    <a href="/car" class="dataOptionButton">CACEL</a>
+                </div>
+            </div>
         </div>
-
     </div>
     <div id="footer"> Subscribe and remember to hit that notification bell</div>
 </div>

@@ -57,8 +57,19 @@
 
     <div id="content">
 
-        <div id="editPerson">
-            <h3>Edit info goes here</h3>
+        <div id="addPerson">
+            <div id="buttonArea">
+                <div id="addButton">EDIT</div>
+                <div id="expandedAddButton">
+                    <form action="/savePerson" method="POST">
+                        <span id="addPersonText">Edit Person</span><br>
+                        <input type="text" class="inputPerson" name="firstName" th:value="${person.firstName}" maxlength="20"><br>
+                        <input type="text" class="inputPerson" name="lastName" th:value="${person.lastName}" maxlength="30"><br>
+                        <button class="dataOptionButton" type="submit" name="personID" th:value="${person.id}">Save</button>
+                    </form>
+                    <a href="/person" class="dataOptionButton">CACEL</a>
+                </div>
+            </div>
         </div>
 
     </div>
