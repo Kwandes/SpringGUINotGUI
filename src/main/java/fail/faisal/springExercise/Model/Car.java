@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Car {
 
     @Id
-    private int carID;
+    private int car_id;
     private String brand;
     private String model;
     private String color;
@@ -16,20 +16,20 @@ public class Car {
 
     }
 
-    public Car ( int carID, String brand, String model, String color ) {
-        this.carID = carID;
+    public Car (int car_id, String brand, String model, String color ) {
+        this.car_id = car_id;
         this.brand = brand;
         this.model = model;
         this.color = color;
     }
 
     //region Getters & Setters
-    public int getCarID() {
-        return carID;
+    public int getCar_id() {
+        return car_id;
     }
 
-    public void setCarID(int carID) {
-        this.carID = carID;
+    public void setCar_id(int carID) {
+        this.car_id = carID;
     }
 
     public String getBrand() {
@@ -56,4 +56,9 @@ public class Car {
         this.color = color;
     }
     //endregion
+
+    public String toString()
+    {
+        return car_id + "|" + brand + " " + model + " - " + color;
+    }
 }

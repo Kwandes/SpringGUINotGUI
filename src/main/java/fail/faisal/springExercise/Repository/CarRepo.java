@@ -23,7 +23,7 @@ public class CarRepo {
     public Car findCarByID ( int carID ) {
         String query = "SELECT * FROM car WHERE car_id = ?";
         RowMapper<Car> rowMapper = new BeanPropertyRowMapper<>(Car.class);
-        Car car = template.queryForObject(query, rowMapper);
+        Car car = template.queryForObject(query, rowMapper, carID);
         return car;
     }
 
@@ -40,6 +40,6 @@ public class CarRepo {
 
     public Boolean updateCar ( Car car ) {
         String query = "UPDATE car SET brand = ?, model = ?, color = ? WHERE car_id = ?";
-        return template.update(query, car.getBrand(), car.getModel(), car.getColor(), car.getCarID()) < 0;
+        return template.update(query, car.getBrand(), car.getModel(), car.getColor(), car.getCar_id()) < 0;
     }
 }

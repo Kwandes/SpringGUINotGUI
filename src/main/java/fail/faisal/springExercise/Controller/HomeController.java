@@ -110,7 +110,7 @@ public class HomeController {
     {
         Person person = personService.findPersonByID(Integer.parseInt(Objects.requireNonNull(wr.getParameter("personID"))));
         model.addAttribute("person", person);
-        return "redirect:/editPerson";
+        return "/home/editPerson";
     }
 
     @PostMapping("/savePerson")
@@ -155,7 +155,7 @@ public class HomeController {
         int carID = Integer.parseInt(Objects.requireNonNull(wr.getParameter("carID")));
         Car car = carService.findCarByID(carID);
         model.addAttribute("car", car);
-        return "redirect:/editCar";
+        return "/home/editCar";
     }
 
     @PostMapping("/saveCar")
