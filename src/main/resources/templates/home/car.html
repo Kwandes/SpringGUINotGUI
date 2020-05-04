@@ -56,19 +56,66 @@
     <!-- End of the sticky header -->
 
     <div id="content">
-
-        <div id="listOfCar">
-            <h3>Car go here</h3>
-
+        <div id="sqlData">
+            <!--    <div id="addPerson">
+                    <h4>add people</h4>
+                    <input type="text">
+                </div>
+                <div id="listOfData">
+                    <h3>people go here</h3>
+                </div>
+            </div> -->
+            <div id="addCar">
+                <div id="buttonArea">
+                    <div id="addButton">
+                        Add a new Car
+                    </div>
+                    <div id="expandedAddButton">
+                        <form action="/addCar" method="POST">
+                            <span id="addCarText">Add new Car</span><br>
+                            <input type="text" class="inputCar" name="brand" value="Brand"><br>
+                            <input type="text" class="inputCar" name="model" value="Model"><br>
+                            <input type="text" class="inputCar" name="color" value="Color"><br>
+                            <button class="dataOptionButton" type="submit">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="listOfData">
+                <table class="dataTable">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="main" th:each="car: ${carList}">
+                        <td th:text="${car.carID}"></td>
+                        <td th:text="${car.brand}"></td>
+                        <td th:text="${car.model}"></td>
+                        <td th:text="${car.color}"></td>
+                        <td class="tableOptions">
+                            <img th:src="@{/img/doubleChevron.png}" alt=">>">
+                            <div class="tableOptionButtons">
+                                <form action="/editCar" method="POST">
+                                    <button class="dataOptionButton" type="submit" name="carID" th:value="${car.carID}">edit</button>
+                                </form>
+                                <form action="/deleteCar" method="POST">
+                                    <button class="dataOptionButton" type="submit" name="carID" th:value="${car.carID}">remove</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <br/>
-
-        <div id="addCar">
-            <h4>add Car</h4>
-        </div>
-
     </div>
+
     <div id="footer"> Subscribe and remember to hit that notification bell</div>
 </div>
 </body>
