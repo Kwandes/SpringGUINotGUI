@@ -5,7 +5,6 @@ import javax.persistence.Id;
 //TEests of comments testest
 
 //Other test comment without pulling
-//TEests of comments testest YEET
 @Entity
 public class Car {
 
