@@ -3,6 +3,7 @@ package fail.faisal.springExercise.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 //TEests of comments testest
+//TEests of comments testest YEET
 @Entity
 public class Car {
 
